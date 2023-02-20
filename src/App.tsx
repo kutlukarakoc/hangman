@@ -8,6 +8,7 @@ import Word from './components/Word'
 function App() {
 
     const [wordToGuess, setWordToGuess] = useState(words[Math.floor(Math.random() * words.length)])
+    const [guessedLetters, setGuessedLetters] = useState<string[]>([])
 
     return (
         <main className="container">
@@ -15,7 +16,7 @@ function App() {
 
             <Drawing />
             <Keyboard />
-            <Word />
+            <Word guessedLetters={guessedLetters}/>
         </main>
     )
 }
