@@ -12,7 +12,10 @@ function App() {
 
     const incorrectLetters = guessedLetters.filter(letter => wordToGuess.indexOf(letter) < 0)
 
-    const addGuessedLetters = useCallback((letter: string) => {
+    const isWinner = wordToGuess.split('').every(letter => guessedLetters.indexOf(letter) > -1)
+    const isLoser = incorrectLetters.length > 5
+
+    const addGuessedLetter = useCallback((letter: string) => {
         if(guessedLetters.indexOf(letter) > -1) return
 
         setGuessedLetters(currentLetters => [...currentLetters, letter])
@@ -25,7 +28,7 @@ function App() {
 
             e.preventDefault()
 
-            addGuessedLetters(key)
+            addGuessedLetter(key)
         }
 
         document.addEventListener('keypress', handler)
@@ -35,11 +38,19 @@ function App() {
 
     return (
         <main className="container">
-            <h1 style={{textAlign:"center"}}>Lose win</h1>
+            <h1 style={{textAlign:"center"}}>
+                {isWinner && 'Congratz! - Refrest to try again'}
+                {isLoser && 'Maybe next time! - Refrest to try again'}
+            </h1>
 
             <Drawing numberOfGuesses={incorrectLetters.length} />
             <Word guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
-            <Keyboard />
+            <Keyboard 
+                activeLetters={guessedLetters.filter(letter => wordToGuess.indexOf(letter) > -1)} 
+                inactiveLetters={incorrectLetters}
+                addGuessedLetter={addGuessedLetter}
+                disabled={isWinner || isLoser}
+            />
         </main>
     )
 }
