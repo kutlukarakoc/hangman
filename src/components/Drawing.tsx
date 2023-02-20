@@ -10,15 +10,22 @@ type DrawingProps = {
 
 const Drawing = ({ numberOfGuesses }: DrawingProps) => {
 
-    const bodyParts = [<HeadDrawing key={1} />, <BodyDrawing key={2} />, <LeftArmDrawing key={3} />, <RightArmDrawing key={4} />, <LeftLegDrawing key={5} />, <RightLegDrawing key={6} />]
+    // Create an array with all the body parts of the drawing
+    const bodyParts = [
+        <HeadDrawing key={1} />,
+        <BodyDrawing key={2} />,
+        <LeftArmDrawing key={3} />,
+        <RightArmDrawing key={4} />,
+        <LeftLegDrawing key={5} />,
+        <RightLegDrawing key={6} />
+    ];
 
     return (
         <div className="drawing__wrapper">
             <div className="drawing__top-line"></div>
             <div className="drawing__top-hook"></div>
-            {
-                bodyParts.slice(0, numberOfGuesses)
-            }
+            {/* Render the body parts up to the number of incorrect guesses */}
+            { bodyParts.slice(0, numberOfGuesses) }
             <div className="drawing__mid-line"></div>
             <div className="drawing__bottom-line"></div>
         </div>
