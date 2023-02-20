@@ -1,0 +1,21 @@
+.keyboard__wrapper {
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+    gap: 8px;
+}
+
+.keyboard__wrapper button:not(.clicked) {
+    cursor: pointer;
+}
+
+.clicked {
+    background-color: cornflowerblue;
+    opacity: .5;
+}
+
+@media screen and (max-width: 820px) {
+    .keyboard__wrapper {
+        padding: 0 1rem;
+    }
+}
