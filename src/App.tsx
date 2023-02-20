@@ -1,6 +1,6 @@
-import './app.css'
+import './styles/app.css';
 import { useState } from "react"
-import words from "./words.json"
+import words from "./constants/words.json"
 import Drawing from './components/Drawing'
 import Keyboard from './components/Keyboard'
 import Word from './components/Word'
