@@ -15,8 +15,8 @@ function App() {
             <h1 style={{textAlign:"center"}}>Lose win</h1>
 
             <Drawing />
-            <Keyboard />
             <Word guessedLetters={guessedLetters}/>
+            <Keyboard />
         </main>
     )
 }
