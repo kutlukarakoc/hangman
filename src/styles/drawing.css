@@ -1,0 +1,32 @@
+.drawing__bottom-line {
+    height: 5px;
+    width: 250px;
+    background-color: #000;
+}
+
+.drawing__mid-line {
+    height: 350px;
+    width: 5px;
+    background-color: #000;
+    margin-left: 120px; /* (250px / 2) - 5 */
+}
+
+.drawing__top-line {
+    height: 5px;
+    width: 200px;
+    background-color: #000;
+    margin-left: 120px;
+}
+
+.drawing__wrapper {
+    position: relative;
+}
+
+.drawing__top-hook {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 5px;
+    background-color: #000;
+}
