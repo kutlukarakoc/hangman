@@ -1,7 +1,9 @@
-const Word = ({guessedLetters}) => {
+type WordProps = {
+    guessedLetters: string[],
+    wordToGuess: string
+}
 
-    let word = 'test'
-    let testGuessedLetters = ['a','s','b','c','t'];
+const Word = ({guessedLetters, wordToGuess}: WordProps) => {
 
     return (
         <h1 style={{
@@ -11,9 +13,9 @@ const Word = ({guessedLetters}) => {
             textTransform: "uppercase"
         }}>
             {
-                word.split('').map((letter, key) => (
-                    <span key={key} style={{ borderBottom: "4px solid #000" }}>
-                        <span style={{visibility: testGuessedLetters.indexOf(letter) > -1 ? 'visible' : 'hidden'}}>
+                wordToGuess.split('').map((letter, key) => (
+                    <span key={key} style={{ borderBottom: "4px solid #000", width: "25px", textAlign: "center" }}>
+                        <span style={{visibility: guessedLetters.indexOf(letter) > -1 ? 'visible' : 'hidden'}}>
                             {letter}
                         </span>
                     </span>

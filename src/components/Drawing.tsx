@@ -8,9 +8,10 @@ type DrawingProps = {
     numberOfGuesses: number
 }
 
-const bodyParts = [<HeadDrawing/>, <BodyDrawing/>, <LeftArmDrawing/>, <RightArmDrawing/>, <LeftLegDrawing/>, <RightLegDrawing/>]
-
 const Drawing = ({ numberOfGuesses }: DrawingProps) => {
+    
+    const bodyParts = [<HeadDrawing/>, <BodyDrawing/>, <LeftArmDrawing/>, <RightArmDrawing/>, <LeftLegDrawing/>, <RightLegDrawing/>]
+
     return (
         <div className="drawing__wrapper">
             <div className="drawing__top-line"></div>
