@@ -1,9 +1,10 @@
 type WordProps = {
     guessedLetters: string[],
-    wordToGuess: string
+    wordToGuess: string,
+    revealWord?: boolean
 }
 
-const Word = ({guessedLetters, wordToGuess}: WordProps) => {
+const Word = ({guessedLetters, wordToGuess, revealWord = false}: WordProps) => {
 
     return (
         <h1 style={{
@@ -15,7 +16,12 @@ const Word = ({guessedLetters, wordToGuess}: WordProps) => {
             {
                 wordToGuess.split('').map((letter, key) => (
                     <span key={key} style={{ borderBottom: "4px solid #000", width: "25px", textAlign: "center" }}>
-                        <span style={{visibility: guessedLetters.indexOf(letter) > -1 ? 'visible' : 'hidden'}}>
+                        <span 
+                            style={{
+                                visibility: guessedLetters.indexOf(letter) > -1 || revealWord ? 'visible' : 'hidden',
+                                color: guessedLetters.indexOf(letter) < 0 && revealWord ? 'red' : 'green'  
+                            }}
+                        >
                             {letter}
                         </span>
                     </span>

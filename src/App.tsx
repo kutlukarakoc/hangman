@@ -16,10 +16,10 @@ function App() {
     const isLoser = incorrectLetters.length > 5
 
     const addGuessedLetter = useCallback((letter: string) => {
-        if(guessedLetters.indexOf(letter) > -1) return
+        if(guessedLetters.indexOf(letter) > -1 || isLoser || isWinner) return
 
         setGuessedLetters(currentLetters => [...currentLetters, letter])
-    }, [guessedLetters])
+    }, [guessedLetters, isWinner, isLoser])
 
     useEffect(() => {
         const handler = (e: KeyboardEvent) => {
@@ -44,7 +44,7 @@ function App() {
             </h1>
 
             <Drawing numberOfGuesses={incorrectLetters.length} />
-            <Word guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
+            <Word guessedLetters={guessedLetters} wordToGuess={wordToGuess} revealWord={isLoser}/>
             <Keyboard 
                 activeLetters={guessedLetters.filter(letter => wordToGuess.indexOf(letter) > -1)} 
                 inactiveLetters={incorrectLetters}

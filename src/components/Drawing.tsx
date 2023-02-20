@@ -9,8 +9,8 @@ type DrawingProps = {
 }
 
 const Drawing = ({ numberOfGuesses }: DrawingProps) => {
-    
-    const bodyParts = [<HeadDrawing/>, <BodyDrawing/>, <LeftArmDrawing/>, <RightArmDrawing/>, <LeftLegDrawing/>, <RightLegDrawing/>]
+
+    const bodyParts = [<HeadDrawing key={1} />, <BodyDrawing key={2} />, <LeftArmDrawing key={3} />, <RightArmDrawing key={4} />, <LeftLegDrawing key={5} />, <RightLegDrawing key={6} />]
 
     return (
         <div className="drawing__wrapper">
